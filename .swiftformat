@@ -1,0 +1,5 @@
+--swiftversion 5.10
+
+--exclude BuildTools
+
+--commas inline
