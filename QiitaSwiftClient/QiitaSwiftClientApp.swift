@@ -9,9 +9,34 @@ import SwiftUI
 
 @main
 struct QiitaSwiftClientApp: App {
+    @StateObject var userStateViewModel = UserStateViewModel()
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationStack {
+                ContentView()
+            }
+            .environmentObject(userStateViewModel)
+        }
+    }
+}
+
+struct ContentView: View {
+    @EnvironmentObject var userStateViewModel: UserStateViewModel
+    @AppStorage("AccessToken") private var accessToken: String = ""
+
+    var body: some View {
+        if accessToken != "" {
+            TabView {
+                HomeScreen()
+                    .tabItem {
+                        Label("ホーム", systemImage: "house.fill")
+                    }
+                // TODO: ユーザーページ
+                // TODO: 記事ページ
+            }
+        } else {
+            LoginScreen()
         }
     }
 }
