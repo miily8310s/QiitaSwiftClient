@@ -53,4 +53,55 @@ struct QiitaService {
 
         _ = try await URLSession.shared.data(for: request)
     }
+
+    func getUser(userId: String) async throws -> CurrentUser {
+        guard let url = URL(string: "https://qiita.com/api/v2/users/\(userId)") else {
+            throw URLError(.badURL)
+        }
+        guard let token = UserDefaults.standard.value(forKey: "AccessToken") else {
+            print("not found token")
+            throw URLError(.badURL)
+        }
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let currentUser = try JSONDecoder().decode(CurrentUser.self, from: data)
+        return currentUser
+    }
+
+    func getItem(itemId: String) async throws -> Item {
+        guard let url = URL(string: "https://qiita.com/api/v2/items/\(itemId)") else {
+            throw URLError(.badURL)
+        }
+        guard let token = UserDefaults.standard.value(forKey: "AccessToken") else {
+            print("not found token")
+            throw URLError(.badURL)
+        }
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let item = try JSONDecoder().decode(Item.self, from: data)
+        return item
+    }
+
+    func getUserItems(userId: String) async throws -> [UserItem] {
+        guard let url = URL(string: "https://qiita.com/api/v2/users/\(userId)/items?page=1&per_page=20") else {
+            throw URLError(.badURL)
+        }
+        guard let token = UserDefaults.standard.value(forKey: "AccessToken") else {
+            print("not found token")
+            throw URLError(.badURL)
+        }
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "accept")
+        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
+
+        let (data, _) = try await URLSession.shared.data(for: request)
+        let items = try JSONDecoder().decode([UserItem].self, from: data)
+        return items
+    }
 }

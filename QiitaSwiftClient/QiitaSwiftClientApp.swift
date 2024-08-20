@@ -32,8 +32,7 @@ struct ContentView: View {
                     .tabItem {
                         Label("ホーム", systemImage: "house.fill")
                     }
-                // TODO: ユーザーページ
-                // TODO: 記事ページ
+                // TODO: 検索ページ
             }
         } else {
             LoginScreen()
