@@ -65,3 +65,37 @@ struct User: Codable {
 }
 
 typealias Items = [Item]
+
+// MARK: - CurrentUser
+
+struct CurrentUser: Codable {
+    let id, name: String
+    let itemsCount: Int
+    let followersCount: Int
+    let description: String?
+    let organization: String?
+    let profileImageURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, name, description, organization
+        case itemsCount = "items_count"
+        case followersCount = "followers_count"
+        case profileImageURL = "profile_image_url"
+    }
+}
+
+// MARK: - CurrentUser
+
+struct UserItem: Codable {
+    let id, title: String
+    let likesCount: Int
+    let stocksCount: Int
+    let createdAt: String
+
+    enum CodingKeys: String, CodingKey {
+        case id, title
+        case likesCount = "likes_count"
+        case stocksCount = "stocks_count"
+        case createdAt = "created_at"
+    }
+}

@@ -12,6 +12,9 @@
 		031CF71D2C3D4D9100BAD1C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 031CF71C2C3D4D9100BAD1C7 /* Preview Assets.xcassets */; };
 		033DDD4F2C56481F009C2419 /* QiitaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DDD4E2C56481F009C2419 /* QiitaService.swift */; };
 		033DDD512C56490B009C2419 /* QiitaModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 033DDD502C56490B009C2419 /* QiitaModel.swift */; };
+		035446C32C6F1BD80048CE82 /* ItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 035446C22C6F1BD80048CE82 /* ItemScreen.swift */; };
+		0359789D2C70515C0024F13D /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0359789C2C70515C0024F13D /* DateFormat.swift */; };
+		03DF82322C6CC3B20014AE52 /* UserScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03DF82312C6CC3B20014AE52 /* UserScreen.swift */; };
 		03E9DD7E2C565BE9004F4DF3 /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03E9DD7D2C565BE9004F4DF3 /* UserImage.swift */; };
 		03EE9A422C4CF25900BF3A1A /* PostAccessTokensModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03EE9A412C4CF25900BF3A1A /* PostAccessTokensModel.swift */; };
 		03F813D12C44FA900074061D /* UserStateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03F813D02C44FA900074061D /* UserStateViewModel.swift */; };
@@ -26,6 +29,9 @@
 		031CF71C2C3D4D9100BAD1C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		033DDD4E2C56481F009C2419 /* QiitaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaService.swift; sourceTree = "<group>"; };
 		033DDD502C56490B009C2419 /* QiitaModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiitaModel.swift; sourceTree = "<group>"; };
+		035446C22C6F1BD80048CE82 /* ItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemScreen.swift; sourceTree = "<group>"; };
+		0359789C2C70515C0024F13D /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		03DF82312C6CC3B20014AE52 /* UserScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScreen.swift; sourceTree = "<group>"; };
 		03E9DD7D2C565BE9004F4DF3 /* UserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
 		03EE9A412C4CF25900BF3A1A /* PostAccessTokensModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAccessTokensModel.swift; sourceTree = "<group>"; };
 		03F813D02C44FA900074061D /* UserStateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserStateViewModel.swift; sourceTree = "<group>"; };
@@ -64,6 +70,7 @@
 		031CF7142C3D4D9000BAD1C7 /* QiitaSwiftClient */ = {
 			isa = PBXGroup;
 			children = (
+				0359789B2C70514D0024F13D /* Utils */,
 				03E9DD7C2C565B89004F4DF3 /* Components */,
 				03EE9A402C4CF22700BF3A1A /* Models */,
 				03F813D62C4803100074061D /* Info.plist */,
@@ -83,6 +90,14 @@
 				031CF71C2C3D4D9100BAD1C7 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0359789B2C70514D0024F13D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				0359789C2C70515C0024F13D /* DateFormat.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		03E9DD7C2C565B89004F4DF3 /* Components */ = {
@@ -115,6 +130,8 @@
 			children = (
 				03F813D22C44FB950074061D /* LoginScreen.swift */,
 				03F813D42C4525D60074061D /* HomeScreen.swift */,
+				03DF82312C6CC3B20014AE52 /* UserScreen.swift */,
+				035446C22C6F1BD80048CE82 /* ItemScreen.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -144,6 +161,8 @@
 			dependencies = (
 			);
 			name = QiitaSwiftClient;
+			packageProductDependencies = (
+			);
 			productName = QiitaSwiftClient;
 			productReference = 031CF7122C3D4D9000BAD1C7 /* QiitaSwiftClient.app */;
 			productType = "com.apple.product-type.application";
@@ -172,6 +191,8 @@
 				Base,
 			);
 			mainGroup = 031CF7092C3D4D8F00BAD1C7;
+			packageReferences = (
+			);
 			productRefGroup = 031CF7132C3D4D9000BAD1C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -219,13 +240,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				035446C32C6F1BD80048CE82 /* ItemScreen.swift in Sources */,
 				03F813D12C44FA900074061D /* UserStateViewModel.swift in Sources */,
 				03F813D52C4525D60074061D /* HomeScreen.swift in Sources */,
+				03DF82322C6CC3B20014AE52 /* UserScreen.swift in Sources */,
 				03F813D32C44FB950074061D /* LoginScreen.swift in Sources */,
 				03EE9A422C4CF25900BF3A1A /* PostAccessTokensModel.swift in Sources */,
 				03E9DD7E2C565BE9004F4DF3 /* UserImage.swift in Sources */,
 				033DDD4F2C56481F009C2419 /* QiitaService.swift in Sources */,
 				033DDD512C56490B009C2419 /* QiitaModel.swift in Sources */,
+				0359789D2C70515C0024F13D /* DateFormat.swift in Sources */,
 				031CF7162C3D4D9000BAD1C7 /* QiitaSwiftClientApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
