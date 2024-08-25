@@ -32,7 +32,10 @@ struct ContentView: View {
                     .tabItem {
                         Label("ホーム", systemImage: "house.fill")
                     }
-                // TODO: 検索ページ
+                SearchScreen()
+                    .tabItem {
+                        Label("検索", systemImage: "magnifyingglass")
+                    }
             }
         } else {
             LoginScreen()

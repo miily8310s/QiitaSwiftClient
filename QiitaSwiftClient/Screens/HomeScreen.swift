@@ -22,24 +22,7 @@ struct HomeScreen: View {
                         NavigationLink {
                             ItemScreen(id: item.id, title: item.title)
                         } label: {
-                            LazyVGrid(columns: columns) {
-                                UserImage(urlPath: item.user.profileImageURL, height: 50)
-                                VStack(alignment: .leading, spacing: 0) {
-                                    Text(item.title)
-                                        .lineLimit(2)
-                                        .bold()
-                                    HStack {
-                                        Text(item.user.name == "" ? item.user.id : item.user.name)
-                                            .font(.caption2)
-                                            .bold()
-                                        Text(item.createdAt.prefix(10))
-                                            .font(.footnote)
-                                    }
-                                }
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                Image(systemName: "greaterthan.circle.fill")
-                                    .frame(width: 42, height: 42)
-                            }
+                            ListItem(item: item)
                         }
                     }
                 }
