@@ -21,7 +21,6 @@ struct ListItem: View {
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
                     .bold()
-                    .background(Color.red)
                 HStack {
                     Text(item.user.name == "" ? item.user.id : item.user.name)
                         .font(.caption2)
