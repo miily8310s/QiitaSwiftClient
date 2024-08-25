@@ -5,7 +5,6 @@
 //  Created by erika yoshikawa on 2024/08/16.
 //
 
-import SwiftSoup
 import SwiftUI
 
 struct HtmlRender: View {
@@ -47,7 +46,7 @@ struct ItemScreen: View {
                             }
                         }
                         Spacer()
-                        Text(item!.createdAt)
+                        Text(formatDateString(isoString: item!.createdAt))
                     }
                     .padding()
                     Text(item!.title)
@@ -66,7 +65,6 @@ struct ItemScreen: View {
                             .padding()
                         }
                     }
-//                    HtmlRender(htmlText: item!.renderedBody)
                     HtmlRender(htmlText:
                         """
                         <html>
@@ -96,17 +94,12 @@ struct ItemScreen: View {
                 do {
                     let fetchedItem = try await QiitaService().getItem(itemId: id)
                     item = fetchedItem
-//                    let doc: Document = try SwiftSoup.parse(item!.renderedBody)
-//                    itemBody = try doc.text()
-//                } catch let Exception.Error(type, message) {
-//                    print(message)
                 } catch {
                     print("items not found")
                 }
             }
             .navigationTitle(title)
             .navigationBarTitleDisplayMode(.inline)
-//            .background(Color("Brand"))
         }
     }
 }

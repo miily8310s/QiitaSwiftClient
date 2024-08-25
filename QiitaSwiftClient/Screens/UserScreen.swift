@@ -42,11 +42,13 @@ struct UserScreen: View {
                             LazyVStack(spacing: 6) {
                                 ForEach(items, id: \.id) { item in
                                     NavigationLink(destination: {
-                                        ItemScreen(id: id, title: item.title)
+                                        ItemScreen(id: item.id, title: item.title)
                                     }, label: {
                                         VStack(alignment: .leading) {
                                             Text(item.title)
                                                 .fontWeight(.bold)
+                                                .frame(maxWidth: .infinity, alignment: .leading)
+                                                .multilineTextAlignment(.leading)
                                             Text(formatDateString(isoString: item.createdAt))
                                                 .font(.footnote)
                                             HStack {
@@ -65,7 +67,6 @@ struct UserScreen: View {
                                 }
                             }
                         }
-                        .padding()
                     }
                     .padding(6)
                     .background(
